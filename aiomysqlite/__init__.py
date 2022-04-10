@@ -15,7 +15,7 @@ class PoolAcquireContextManager:
         self.filename = filename
 
     async def __aenter__(self):
-        self.connection = await connect(filename)
+        self.connection = await connect(self.filename)
         return self.connection
 
     async def __aexit__(self, *args, **kwargs):
